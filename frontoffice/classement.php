@@ -183,7 +183,7 @@ if(!isset($_SESSION['user_id'])){
 									<h4 class="title">Le classement du site</h4>
 								</div>
 								<div class="content">
-						      <form name="class" class="col-md-4" action="./classement.php" method="POST">
+						      <form name="class" class="col-md-6" action="./classement.php" method="POST">
                     <div class="form-group">
                       <select class="form-control" name="class">
                       	<option value="actuel">Classement actuel de ta ville</option>
@@ -203,20 +203,21 @@ if(!isset($_SESSION['user_id'])){
                   }
                   include '../config/connecdb.php';
                   if($classement=="actuel" || $classement=="actuelTotal"){
-                    $sql = 'select * from Utilisateur where id=(select id_user from ville_utilisateur where intitule=(select intitule from ville_utilisateur where id_user='.$_SESSION['user_id'].')) order by points_actuels;';
+                    $sql = 'select * from Utilisateur where id=(select id_user from ville_utilisateur where intitule=(select intitule from ville_utilisateur where id_user='.$_SESSION['user_id'].')) order by points_actuels desc;';
                   }
                   if($classement=="total"){
-                    $sql = 'select * from Utilisateur where ville="'.$ville.'" orderby points_totaux;';
+                    $sql = 'select * from Utilisateur where id=(select id_user from ville_utilisateur where intitule=(select intitule from ville_utilisateur where id_user='.$_SESSION['user_id'].')) order by points_totaux desc;';
                   }                                                                                
                   if($classement=="global"){
-                    $sql = 'select * from Utilisateur orderby points_actuels;';
+                    $sql = 'select * from Utilisateur order by points_actuels desc;';
                   }                                                                                
                   if($classement=="globalTotal"){
-                    $sql = 'select * from Utilisateur orderby points_totaux;';
+                    $sql = 'select * from Utilisateur order by points_totaux desc;';
                   }
                   $i=1;
                   $result = mysqli_query($conn,$sql);
                   echo '<table class="table">';
+                  echo $sql;
                   while($row = mysqli_fetch_array($result)) {
                     echo '<tr><td>'.$i.'</td><td>'.$row['login'].'</td><td>'.$row['points_actuels'].'</td><td>'.$row['points_totaux'].'</td></tr>';
                     $i++;
