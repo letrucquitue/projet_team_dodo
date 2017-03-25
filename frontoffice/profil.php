@@ -170,65 +170,100 @@
 			<div class="content">
 				<div class="container-fluid">
 					<div class="row">
-						<div class="col-md-12">
-									<!--Affichage du profil-->
-									<div class="col-md-6">
-										<div class="card card-user">
-											<div class="image">
-												<img src="../assets/img/cover.png" alt="Photo de couverture"/>
-											</div>
-												<div class="author">
-													<a href="#">
-														<img class="avatar" src="../assets/img/default-avatar.png" alt="Photo de profil"/>
-												
-														<!--tmp version-->
-														<h4 class="title"> 
-															Karine Henry <br/>
-															<small>avec1Ket1Y</small>
-														</h4>
-													</a>
-												</div>
-											</div>
-											<!--Titre, description?-->
-										</div>
 
-										<!--Edition du profil-->
-										<div class="col-md-6">
-											<div class="card">
-												<div class="header">
-                          <h4 class="title">
-                          	Modifier le profil
-                          </h4>
-                         </div>
-                         <div class="content">
-                          <form>
-                          	<!--<div class="row">-->
-                          		<!--Modif prénom-->
-                              <div class="col-md-4">
-                                <div class="form-group">
-                                  <label>Prénom</label>
-                                  <input type="text" class="form-control" placeholder="Prénom" value="Karine">
-                                </div>
-                              </div>
-                              <!--Modif nom-->
-                              <div class="col-md-6">
-                                <div class="form-group">
-                                  <label>Nom</label>
-                                  <input type="text" class="form-control" placeholder="Nom" value="Henry">
-                                </div>
-                              </div>
-                            <!--</div>-->
-														<button type="submit" class="btn btn-info btn-fill pull-right">Valider</button>
-                            <div class="clearfix"></div>
-                          </form>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+						<!--Affichage du profil-->
+						<div class="col-md-6">
+							<div class="card card-user">
+								<!--Photo de couverture-->
+								<div class="image">
+									<img src="../assets/img/cover-default.jpg" alt="Photo de couverture"/>
+								</div>
+								<div class="content">
+									<div class="author">
+										<a href="#">
+											<!--Avatar-->
+											<img class="avatar" src="../assets/img/default-avatar.png" alt="Photo de profil"/>
+												
+											<!--tmp version-->
+											<h4 class="title">
+												<!--Nom complet--> 
+												Karine Henry <br/>
+												<!--Username-->
+												<small>avec1Ket1Y</small>
+											</h4>
+										</a>
+										<h5>
+											<!--Titre-->
+											Poussin
+										</h5>
+										<h6>
+											<!--Ville-->
+											Lannion
+										</h6>
+										<p>
+											Vélo<br>
+											Trotinette
+										</p>	
+									</div>
 								</div>
 							</div>
 						</div>
-					</div>
+
+						<!--Edition du profil-->
+						<div class="col-md-6">
+							<div class="card">
+								<div class="header">
+                  <h4 class="title">
+                    Modifier le profil
+                  </h4>
+                </div>
+                <div class="content">
+                  <form>
+                  	<!--Rangée Prénom Nom-->
+                   	<div class="row">
+
+                       	<!--Modif prénom-->
+                        <div class="col-md-4">
+                          <div class="form-group">
+                            <label>Prénom</label>
+                            <input type="text" class="form-control" placeholder="Prénom" value="Karine">
+                          </div>
+                        </div>
+                        
+                        <!--Modif nom-->
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label>Nom</label>
+                            <input type="text" class="form-control" placeholder="Nom" value="Henry">
+                          </div>
+                        </div>
+
+                      </div>
+
+                      <!--Rangée Ville-->
+                      <div class="row">
+
+                       	<!--Modif ville-->
+                        <div class="col-md-4">
+                          <div class="form-group">
+                            <label>Ville</label>
+                            <input type="text" class="form-control" placeholder="Ville" value="Lannion">
+                          </div>
+                        </div>
+
+                      </div>
+
+                      <!--Bouton de validation-->
+											<button type="submit" class="btn btn-info btn-fill pull-right">Valider</button>
+
+                      <div class="clearfix"></div>
+                  </form>
+
+                </div>
+
+              </div>
+            </div>
+          </div>
 				</div>
 			</div>
 
