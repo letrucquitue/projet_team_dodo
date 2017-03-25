@@ -227,9 +227,9 @@
 									<div class="typo-line">
 									<h2>Un petit mot de l'équipe</h2>
 									<p>
-									TimKY est un projet naît de notre motivation à participer au Hackaton et a pour but de valoriser les déplacements non-poluants (tu t'en doute c'était notre sujet). 
+									TimKY est un projet né de notre motivation à participer au Hackaton et a pour but de valoriser les déplacements non-poluants (tu t'en doute c'était notre sujet). 
 									L'idée est de t'aider à te motiver pour tes actions éco-responsables et de récompenser celle-ci (il faut bien se l'avouer on a rien sans rien). 	
-									Timmy, c'était l'occasion pour nous de nous dépasser et créer un site sympa pour toi en un Week-end (tout en passant un bon moment entre nous, on ne te le cache pas).
+									TimKY, c'était l'occasion pour nous de nous dépasser et créer un site sympa pour toi en un Week-end (tout en passant un bon moment entre nous, on ne te le cache pas).
 									</p>
 
 
