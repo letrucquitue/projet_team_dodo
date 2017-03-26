@@ -1,3 +1,19 @@
+<?php
+session_start();
+
+if(!isset($_SESSION['user_session']))
+{
+	header("location: connexion.php");
+}
+
+include_once '../config/connectdb.php';
+
+$stmt = $db_con->prepare("SELECT * FROM utilisateur WHERE id=:uid");
+$stmt->execute(array(":uid"=>$_SESSION['user_session']));
+$row=$stmt->fetch(PDO::FETCH_ASSOC);
+
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -156,7 +172,7 @@
 								<ul class="dropdown-menu">
 									<li><a href="profil.php"> <i class="pe-7s-user"></i> Editer Profil</a></li>
 
-									<li><a href="#"> <i class="pe-7s-power"></i> Se déconnecter</a></li>
+									<li><a href="logout.php"> <i class="pe-7s-power"></i> Se déconnecter</a></li>
 								</ul>
 							</li>
 
