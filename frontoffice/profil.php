@@ -22,6 +22,12 @@ if(!isset($_SESSION['user_id'])){
 			$nom=$donnees['nom'];
 		}
 
+		//Username
+		$reslogin = mysqli_query($conn,'select login from utilisateur where id='.$_SESSION['user_id'].';');
+		while($donnees=mysqli_fetch_array($reslogin)){
+			$login=$donnees['login'];
+		}
+
 		//Ville
 	}
 
@@ -40,7 +46,7 @@ if(!isset($_SESSION['user_id'])){
 <html lang="fr">
 
 <head>
-	<meta charset="utf-8" />
+	<meta charset="utf-8"/>
 	<link rel="icon" type="image/png" href="../assets/img/favicon.ico">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
@@ -229,7 +235,7 @@ if(!isset($_SESSION['user_id'])){
 													echo $prenom.' '.$nom;
 												?> <br/>
 												<!--Username-->
-												<small>avec1Ket1Y</small>
+												<small><?php echo $login; ?></small>
 											</h4>
 										</a>
 										<h5>
