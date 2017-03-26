@@ -1,3 +1,40 @@
+<?php
+session_start();
+if(!isset($_SESSION['user_id'])){
+  $_SESSION['user_id']=1;
+}
+?>
+
+
+<?php
+	include '../config/connectdb.php';
+	/*Récupération des infos utilisateur*/
+	if(isset($_SESSION['user_id'])){
+		//Prénom
+		$resPrenom = mysqli_query($conn,'select prenom from Utilisateur where id='.$_SESSION['user_id'].';');
+		while($donnees=mysqli_fetch_array($resPrenom){
+			$prenom=$donnees['prenom'];
+		}
+
+		//Nom
+		$resnom = mysqli_query($conn,'select nom from Utilisateur where id='.$_SESSION['user_id'].';');
+		while($donnees=mysqli_fetch_array($resnom){
+			$nom=$donnees['nom'];
+		}
+
+		//Ville
+	}
+
+	/*Traitement du formulaire*/
+	if(isset($POST['prenom'])){
+		$sql = 'update Utilisateur set prenom = '.$_POST['prenom'].' where id_user = '.$_SESSION['user_id'].';';
+	}
+	if(isset($POST['nom'])){
+		$sql = 'update Utilisateur set nom = '.$_POST['nom'].' where id_user = '.$_SESSION['user_id'].';';
+	}
+	//Traitement ville
+?>
+
 <!doctype html>
 <html lang="fr">
 
@@ -218,7 +255,7 @@
                   </h4>
                 </div>
                 <div class="content">
-                  <form>
+                  <form name ="edit" action="profil.php" method="POST">
                   	<!--Rangée Prénom Nom-->
                    	<div class="row">
 
@@ -226,7 +263,7 @@
                         <div class="col-md-4">
                           <div class="form-group">
                             <label>Prénom</label>
-                            <input type="text" class="form-control" placeholder="Prénom" value="Karine">
+                            <input type="text" class="form-control" placeholder="Prénom" value="Karine" name="prenom">
                           </div>
                         </div>
                         
@@ -234,7 +271,7 @@
                         <div class="col-md-6">
                           <div class="form-group">
                             <label>Nom</label>
-                            <input type="text" class="form-control" placeholder="Nom" value="Henry">
+                            <input type="text" class="form-control" placeholder="Nom" value="Henry" name="nom">
                           </div>
                         </div>
 
@@ -247,7 +284,7 @@
                         <div class="col-md-4">
                           <div class="form-group">
                             <label>Ville</label>
-                            <input type="text" class="form-control" placeholder="Ville" value="Lannion">
+                            <input type="text" class="form-control" placeholder="Ville" value="Lannion" name="ville">
                           </div>
                         </div>
 
@@ -258,9 +295,7 @@
 
                       <div class="clearfix"></div>
                   </form>
-
                 </div>
-
               </div>
             </div>
           </div>
