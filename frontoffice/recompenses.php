@@ -157,18 +157,19 @@ if(!isset($_SESSION['user_id'])){
 										</p>
 										<?php
 						                	include '../config/connecdb.php';
-                  							$sql_ville = 'select id_ville from ville_utilisateur where id_user = '.$_SESSION['user_id'];
-                  							$result_id_ville = mysqli_query($conn,$sql_ville);
-                  							$sql_id = 'select id_recompense from ville_recompense where id_ville_recomp = '.$result_id_ville;
+                  							$sql_ville = 'select * from ville_utilisateur where id_user = '.$_SESSION['user_id'];
+                  							$result_ville = mysqli_query($conn,$sql_ville);
+									$row_res = mysqli_fetch_array($result_ville);
+                  							$sql_id = 'select id_recomp from ville_recompenses where intitule = '.$row_res['intitule'].' and code_post='.$row_res['code_post'];
                   							$result_id = mysqli_query($conn,$sql_id);
                   							$sql= 'select * from recompenses where attribue = 0 and id_recomp in '.$result_id;
                   							$result= mysqli_query($conn,$sql_id);
-											  echo '<table class="table">';
-											  echo $sql;
-											  while($row = mysqli_fetch_array($result)) {
+											echo '<table class="table">';
+											echo '<tr><th>Nom</th><th>Description</th></th>';
+											while($row = mysqli_fetch_array($result)) {
 												echo '<tr><td>'.$row['intitule'].'</td><td>'.$row['description'].'</td><td></tr>';
-											  }
-											  echo '</table>'
+											}
+											echo '</table>'
 									  ?>
 									</div>
 
@@ -184,12 +185,12 @@ if(!isset($_SESSION['user_id'])){
                   							$result_id = mysqli_query($conn,$sql_id);
                   							$sql= 'select * from recompenses where attribue = 1 and id_recomp in '.$result_id;
                   							$result= mysqli_query($conn,$sql_id);
-											  echo '<table class="table">';
-											  echo $sql;
-											  while($row = mysqli_fetch_array($result)) {
+											echo '<table class="table">';
+											echo '<tr><th>Nom</th><th>Description</th></tr>';
+											while($row = mysqli_fetch_array($result)) {
 												echo '<tr><td>'.$row['intitule'].'</td><td>'.$row['description'].'</td><td></tr>';
-											  }
-											  echo '</table>'
+											}
+											echo '</table>'
 									  ?>
 									</div>
 					
