@@ -8,7 +8,7 @@ URL: http://www.codingcage.com/
 
 session_start();
 
-if(isset($_SESSION['user_session'])!="")
+if(isset($_SESSION['user_id'])!="")
 {
 	header("Location: index.php");
 }
@@ -24,7 +24,6 @@ if(isset($_SESSION['user_session'])!="")
 <script type="text/javascript" src="../assets/js/jquery-1.11.3-jquery.min.js"></script>
 <script type="text/javascript" src="../assets/js/validation.min.js"></script>
 <link href="../assets/css/style_connexion.css" rel="stylesheet" type="text/css" media="screen">
-<script type="text/javascript" src="../assets/js/script.js"></script>
 
 </head>
 
@@ -35,7 +34,7 @@ if(isset($_SESSION['user_session'])!="")
 	<div class="container">
      
         
-       <form class="form-signin" method="post" id="login-form">
+       <form class="form-signin" action="login_process.php" method="post" id="login-form">
       
         <h2 class="form-signin-heading">Login</h2><hr />
         
@@ -44,7 +43,7 @@ if(isset($_SESSION['user_session'])!="")
         </div>
         
         <div class="form-group">
-        <input type="email" class="form-control" placeholder="Email" name="user_email" id="user_email" />
+        <input type="text" class="form-control" placeholder="Login ou Email" name="user_email" id="user_email" />
         <span id="check-e"></span>
         </div>
         

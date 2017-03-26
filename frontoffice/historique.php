@@ -1,14 +1,14 @@
 <?php
 session_start();
-
 if(!isset($_SESSION['user_id']))
 {
 	header("location: connexion.php");
 }
+
 ?>
 
 <!doctype html>
-<html lang="en">
+<html lang="fr">
 
 <head>
 	<meta charset="utf-8" />
@@ -57,7 +57,6 @@ if(!isset($_SESSION['user_id']))
                     TimKY
                 </a>
 				</div>
-
 				<ul class="nav">
 					<li class="active">
 						<a href="index.php">
@@ -112,7 +111,7 @@ if(!isset($_SESSION['user_id']))
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-						<a class="navbar-brand" href="#">Classement</a>
+						<a class="navbar-brand" href="#">Historique</a>
 					</div>
 					<div class="collapse navbar-collapse">
 						<ul class="nav navbar-nav navbar-left">
@@ -182,53 +181,27 @@ if(!isset($_SESSION['user_id']))
 						<div class="col-md-12">
 							<div class="card">
 								<div class="header">
-									<h4 class="title">Le classement du site</h4>
+									<h4 class="title">Votre historique</h4>
 								</div>
-								<div class="content">
-						      <form name="class" class="col-md-6" action="./classement.php" method="POST">
-                    <div class="form-group">
-                      <select class="form-control" name="class">
-                      	<option value="actuel">Classement actuel de ta ville</option>
-                      	<option value="total">Classement depuis le début de ta ville</option>
-                        <option value="global">Classement global</option>
-                        <option value="globalTotal">Classement depuis le début global</option>
-                      </select>
-                      <button type="submit" class="btn btn-primary">Changer</button>
-                    </div>
-                  </form>
-                  <?php
-                  if(isset($_POST['class'])){
-                    $classement = $_POST['class'];
-                  }
-                  else{
-                    $classement = "actuel";
-                  }
+								<div class="content">                  
+                  <?php                                                      
                   include '../config/connecdb.php';
-                  if($classement=="actuel" || $classement=="actuelTotal"){
-                    $sql = 'select * from Utilisateur where id=(select id_user from ville_utilisateur where intitule=(select intitule from ville_utilisateur where id_user='.$_SESSION['user_id'].')) order by points_actuels desc;';
-                  }
-                  if($classement=="total"){
-                    $sql = 'select * from Utilisateur where id=(select id_user from ville_utilisateur where intitule=(select intitule from ville_utilisateur where id_user='.$_SESSION['user_id'].')) order by points_totaux desc;';
-                  }                                                                                
-                  if($classement=="global"){
-                    $sql = 'select * from Utilisateur order by points_actuels desc;';
-                  }                                                                                
-                  if($classement=="globalTotal"){
-                    $sql = 'select * from Utilisateur order by points_totaux desc;';
-                  }
-                  $i=1;
+                  $sql = 'select * from histo_trajet where id_user='.$_SESSION['user_id'];
                   $result = mysqli_query($conn,$sql);
-                  echo '<table class="table">';
-                  echo $sql;
-                  while($row = mysqli_fetch_array($result)) {
-                    echo '<tr><td>'.$i.'</td><td>'.$row['login'].'</td><td>'.$row['points_actuels'].'</td><td>'.$row['points_totaux'].'</td></tr>';
-                    $i++;
+                  echo '<table class="table"><th>Origine</th><th>Destination</th><th>Distance</th><th>Moyen de transport</th><th>Points</th><th>Date</th>';
+                  
+                  while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+                    echo '<tr><td>'.$row['depart'].'</td><td>'.$row['arrivee'].'</td><td>'.$row['dist'].'</td><td>'.$row['vehicule'].'</td><td>'.$row['point_cumul'].'</td><td>'.$row['date_trajet'].'</td></tr>';
                   }
-                  echo '</table>'
-                  ?>
-                </div>
+                  echo '</table>';
+                  mysqli_free_result($result); 
+                  mysqli_close($conn);
+                  ?>      
+
+								</div>
 							</div>
 						</div>
+
 					</div>
 				</div>
 			</div>
