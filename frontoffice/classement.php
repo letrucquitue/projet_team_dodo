@@ -203,7 +203,7 @@ if(!isset($_SESSION['user_id']))
                   else{
                     $classement = "actuel";
                   }
-                  include '../config/connecdb.php';
+                  include '../config/connectdb.php';
                   if($classement=="actuel" || $classement=="actuelTotal"){
                     $sql = 'select * from Utilisateur where id=(select id_user from ville_utilisateur where intitule=(select intitule from ville_utilisateur where id_user='.$_SESSION['user_id'].')) order by points_actuels desc;';
                   }

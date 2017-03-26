@@ -185,7 +185,7 @@ if(!isset($_SESSION['user_id']))
 								</div>
 								<div class="content">                  
                   <?php                                                      
-                  include '../config/connecdb.php';
+                  include '../config/connectdb.php';
                   $sql = 'select * from histo_trajet where id_user='.$_SESSION['user_id'];
                   $result = mysqli_query($conn,$sql);
                   echo '<table class="table"><th>Origine</th><th>Destination</th><th>Distance</th><th>Moyen de transport</th><th>Points</th><th>Date</th>';

@@ -1,7 +1,7 @@
 <?php                              
   session_start();
   if(!isset($_SESSION['user_id'])){
-  	require_once '../config/connecdb.php';
+  	require_once '../config/connectdb.php';
   	if(isset($_POST['btn-login']))
   	{
   		$user_email = trim($_POST['user_email']);

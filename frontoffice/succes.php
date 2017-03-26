@@ -185,7 +185,7 @@ if(!isset($_SESSION['user_id']))
 								</div>
 								<div class="content">                  
                   <?php                                                      
-                  include '../config/connecdb.php';
+                  include '../config/connectdb.php';
                   $sql = 'select * from histo_trajet where vehicule="pied" and id_user='.$_SESSION["user_id"];
                   $result = mysqli_query($conn,$sql);
                   $nbPied= mysqli_num_rows($result);
