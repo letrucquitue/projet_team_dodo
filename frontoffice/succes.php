@@ -58,7 +58,7 @@ if(!isset($_SESSION['user_id']))
                 </a>
 				</div>
 				<ul class="nav">
-					<li class="active">
+					<li>
 						<a href="index.php">
 							<i class="pe-7s-home"></i>
 							<p>Accueil</p>
@@ -70,10 +70,10 @@ if(!isset($_SESSION['user_id']))
 							<p>Recherche Trajet</p>
 						</a>
 					</li>
-					<li>
+					<li class="active">
 						<a href="succes.php">
 							<i class="pe-7s-cup"></i>
-							<p>Succés</p>
+							<p>Succès</p>
 						</a>
 					</li>
 					<li>
@@ -212,14 +212,14 @@ if(!isset($_SESSION['user_id']))
                   mysqli_free_result($result); 
                   $sql = 'select * from succes where id_user='.$_SESSION['user_id'].' order by categorie;';
                   $result = mysqli_query($conn,$sql);
-                  echo '<table class="table">';
+                  echo '<table class="table"><th>Catégorie</th><th>Description</th><th>Progression</th>';
                   
                   while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
                   
                     echo '<tr>';
                     if($row['categorie']=='DistPied'){
                       echo '<td>';
-                      echo '<i class="pe-7s-power"></i>';// on met une image de pied ?
+                      echo '<p><i class="pe-7s-power"></i></p>';// on met une image de pied ?
                       echo '</td><td>';
                       echo $row['description'];           
                       echo '</td><td>';
@@ -233,7 +233,7 @@ if(!isset($_SESSION['user_id']))
                     }
                     if($row['categorie']=='NbPied'){
                       echo '<td>';
-                      echo '<i class="pe-7s-power"></i>';// on met une image de pied ?
+                      echo '<p><i class="pe-7s-power"></i></p>';// on met une image de pied ?
                       echo '</td><td>';
                       echo $row['description'];           
                       echo '</td><td>';
@@ -247,7 +247,7 @@ if(!isset($_SESSION['user_id']))
                     }
                     if($row['categorie']=='DistVelo'){
                       echo '<td>';
-                      echo '<i class="pe-7s-bicycle"></i>';// on met une image de pied ?
+                      echo '<p><i class="pe-7s-bicycle"></i></p>';// on met une image de pied ?
                       echo '</td><td>';
                       echo $row['description'];           
                       echo '</td><td>';
@@ -261,7 +261,7 @@ if(!isset($_SESSION['user_id']))
                     }
                     if($row['categorie']=='NbVelo'){
                       echo '<td>';
-                      echo '<i class="pe-7s-bicycle"></i>';// on met une image de pied ?
+                      echo '<p><i class="pe-7s-bicycle"></i></p>';// on met une image de pied ?
                       echo '</td><td>';
                       echo $row['description'];           
                       echo '</td><td>';
@@ -275,7 +275,7 @@ if(!isset($_SESSION['user_id']))
                     }
                     if($row['categorie']=='DistSansVoiture'){
                       echo '<td>';
-                      echo '<i class="pe-7s-power"></i>';// on met une image de pied ?
+                      echo '<p><i class="pe-7s-power"></i></p>';// on met une image de pied ?
                       echo '</td><td>';
                       echo $row['description'];           
                       echo '</td><td>';
@@ -289,7 +289,7 @@ if(!isset($_SESSION['user_id']))
                     }
                     if($row['categorie']=='NbSansVoiture'){
                       echo '<td>';
-                      echo '<i class="pe-7s-power"></i>';// on met une image de pied ?
+                      echo '<p><i class="pe-7s-power"></i></p>';// on met une image de pied ?
                       echo '</td><td>';
                       echo $row['description'];           
                       echo '</td><td>';

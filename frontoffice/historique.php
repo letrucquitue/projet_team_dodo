@@ -58,7 +58,7 @@ if(!isset($_SESSION['user_id']))
                 </a>
 				</div>
 				<ul class="nav">
-					<li class="active">
+					<li>
 						<a href="index.php">
 							<i class="pe-7s-home"></i>
 							<p>Accueil</p>
@@ -73,10 +73,10 @@ if(!isset($_SESSION['user_id']))
 					<li>
 						<a href="succes.php">
 							<i class="pe-7s-cup"></i>
-							<p>Succés</p>
+							<p>Succès</p>
 						</a>
 					</li>
-					<li>
+					<li class="active">
 						<a href="historique.php">
 							<i class="pe-7s-clock"></i>
 							<p>Historique

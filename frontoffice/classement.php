@@ -59,7 +59,7 @@ if(!isset($_SESSION['user_id']))
 				</div>
 
 				<ul class="nav">
-					<li class="active">
+					<li>
 						<a href="index.php">
 							<i class="pe-7s-home"></i>
 							<p>Accueil</p>
@@ -74,7 +74,7 @@ if(!isset($_SESSION['user_id']))
 					<li>
 						<a href="succes.php">
 							<i class="pe-7s-cup"></i>
-							<p>Succés</p>
+							<p>Succès</p>
 						</a>
 					</li>
 					<li>
@@ -84,7 +84,7 @@ if(!isset($_SESSION['user_id']))
 							</p>
 						</a>
 					</li>
-					<li>
+					<li class="active">
 						<a href="classement.php">
 							<i class="pe-7s-medal"></i>
 							<p>Classement</p>
@@ -204,22 +204,27 @@ if(!isset($_SESSION['user_id']))
                     $classement = "actuel";
                   }
                   include '../config/connectdb.php';
+                  echo '<h3 class="col-md-12">';
                   if($classement=="actuel" || $classement=="actuelTotal"){
+                    echo "Classement actuel de ta ville";
                     $sql = 'select * from Utilisateur where id=(select id_user from ville_utilisateur where intitule=(select intitule from ville_utilisateur where id_user='.$_SESSION['user_id'].')) order by points_actuels desc;';
                   }
                   if($classement=="total"){
+                    echo "Classement depuis le début de ta ville";
                     $sql = 'select * from Utilisateur where id=(select id_user from ville_utilisateur where intitule=(select intitule from ville_utilisateur where id_user='.$_SESSION['user_id'].')) order by points_totaux desc;';
                   }                                                                                
-                  if($classement=="global"){
+                  if($classement=="global"){                 
+                    echo "Classement global";
                     $sql = 'select * from Utilisateur order by points_actuels desc;';
                   }                                                                                
                   if($classement=="globalTotal"){
+                    echo "Classement depuis le début global";
                     $sql = 'select * from Utilisateur order by points_totaux desc;';
                   }
+                  echo '</h3>';
                   $i=1;
                   $result = mysqli_query($conn,$sql);
-                  echo '<table class="table">';
-                  echo $sql;
+                  echo '<table class="table"><th>Position</th><th>Pseudo</th><th>Nombre de points actuellement</th><th>Nombre de points totaux</th>';
                   while($row = mysqli_fetch_array($result)) {
                     echo '<tr><td>'.$i.'</td><td>'.$row['login'].'</td><td>'.$row['points_actuels'].'</td><td>'.$row['points_totaux'].'</td></tr>';
                     $i++;
