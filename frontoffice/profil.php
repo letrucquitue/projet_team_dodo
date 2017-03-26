@@ -11,14 +11,14 @@ if(!isset($_SESSION['user_id'])){
 	/*Récupération des infos utilisateur*/
 	if(isset($_SESSION['user_id'])){
 		//Prénom
-		$resPrenom = mysqli_query($conn,'select prenom from Utilisateur where id='.$_SESSION['user_id'].';');
-		while($donnees=mysqli_fetch_array($resPrenom){
+		$resPrenom = mysqli_query($conn,'select prenom from utilisateur where id='.$_SESSION['user_id'].';');
+		while($donnees=mysqli_fetch_array($resPrenom)){
 			$prenom=$donnees['prenom'];
 		}
 
 		//Nom
-		$resnom = mysqli_query($conn,'select nom from Utilisateur where id='.$_SESSION['user_id'].';');
-		while($donnees=mysqli_fetch_array($resnom){
+		$resnom = mysqli_query($conn,'select nom from utilisateur where id='.$_SESSION['user_id'].';');
+		while($donnees=mysqli_fetch_array($resnom)){
 			$nom=$donnees['nom'];
 		}
 
@@ -27,10 +27,11 @@ if(!isset($_SESSION['user_id'])){
 
 	/*Traitement du formulaire*/
 	if(isset($POST['prenom'])){
-		$sql = 'update Utilisateur set prenom = '.$_POST['prenom'].' where id_user = '.$_SESSION['user_id'].';';
+		$sql = 'update utilisateur set prenom = ? where id_user = '.$_SESSION['user_id'].';';
+
 	}
 	if(isset($POST['nom'])){
-		$sql = 'update Utilisateur set nom = '.$_POST['nom'].' where id_user = '.$_SESSION['user_id'].';';
+		$sql = 'update utilisateur set nom = '.$_POST['nom'].' where id_user = '.$_SESSION['user_id'].';';
 	}
 	//Traitement ville
 ?>
@@ -224,7 +225,9 @@ if(!isset($_SESSION['user_id'])){
 											<!--tmp version-->
 											<h4 class="title">
 												<!--Nom complet--> 
-												Karine Henry <br/>
+												<?php
+													echo $prenom.' '.$nom;
+												?> <br/>
 												<!--Username-->
 												<small>avec1Ket1Y</small>
 											</h4>
@@ -263,7 +266,7 @@ if(!isset($_SESSION['user_id'])){
                         <div class="col-md-4">
                           <div class="form-group">
                             <label>Prénom</label>
-                            <input type="text" class="form-control" placeholder="Prénom" value="Karine" name="prenom">
+                            <input type="text" class="form-control" placeholder="Prénom" name="prenom">
                           </div>
                         </div>
                         
@@ -271,7 +274,7 @@ if(!isset($_SESSION['user_id'])){
                         <div class="col-md-6">
                           <div class="form-group">
                             <label>Nom</label>
-                            <input type="text" class="form-control" placeholder="Nom" value="Henry" name="nom">
+                            <input type="text" class="form-control" placeholder="Nom" name="nom">
                           </div>
                         </div>
 
@@ -284,7 +287,7 @@ if(!isset($_SESSION['user_id'])){
                         <div class="col-md-4">
                           <div class="form-group">
                             <label>Ville</label>
-                            <input type="text" class="form-control" placeholder="Ville" value="Lannion" name="ville">
+                            <input type="text" class="form-control" placeholder="Ville" name="ville">
                           </div>
                         </div>
 
