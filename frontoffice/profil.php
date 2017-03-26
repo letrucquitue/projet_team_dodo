@@ -120,7 +120,7 @@ if(!isset($_SESSION['user_id']))
 						</a>
 					</li>
 					<li>
-						<a href="succes.php">
+						<a href="succès.php">
 							<i class="pe-7s-cup"></i>
 							<p>Succès</p>
 						</a>
@@ -139,7 +139,7 @@ if(!isset($_SESSION['user_id']))
 						</a>
 					</li>
 					<li>
-						<a href="recompenses.php">
+						<a href="récompenses.php">
 							<i class="pe-7s-gift"></i>
 							<p>Récompenses</p>
 						</a>
@@ -203,7 +203,7 @@ if(!isset($_SESSION['user_id']))
 							</li> -->
 
 							<li class="dropdown">
-								<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+								<a href="logout.php" class="dropdown-toggle" data-toggle="dropdown">
 									<p>
 										Profil
 										<b class="caret"></b>
@@ -251,18 +251,10 @@ if(!isset($_SESSION['user_id']))
 												<small><?php echo $login; ?></small>
 											</h4>
 										</a>
-										<h5>
-											<!--Titre-->
-											Poussin
-										</h5>
 										<h6>
 											<!--Ville-->
 											<?php echo $ville; ?>
 										</h6>
-										<p>
-											Vélo<br>
-											Trotinette
-										</p>	
 									</div>
 								</div>
 							</div>
