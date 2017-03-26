@@ -37,18 +37,18 @@ if(!isset($_SESSION['user_id'])){
 
 	/*Traitement du formulaire*/
 	if(!empty($_POST['prenom'])){
-		$newprenom = $_POST['prenom'];
-		$sql = 'update utilisateur set prenom = '.$newprenom.' where id_user = '.$_SESSION['user_id'].';';
+		$newprenom = trim($_POST['prenom']);
+		$sql = "update utilisateur set prenom = '".$newprenom." where id_user = ".$_SESSION['user_id'].";";
 		$resP = mysqli_query($conn,$sql);
 	}
 	if(!empty($_POST['nom'])){
-		$newnom = $_POST['nom'];
-		$sql='update utilisateur set nom = '.$newnom.' where id_user = '.$_SESSION['user_id'].';';
+		$newnom = trim($_POST['nom']);
+		$sql="update utilisateur set nom = '".$newnom."' where id_user = ".$_SESSION['user_id'].";";
 		$resN=mysqli_query($conn,$sql);
 	}
 	if(!empty($_POST['ville'])){
-		$newville = $_POST['ville'];
-		$sql = 'update ville_utilisateur set intitule = '.$newville.' where id_user = '.$_SESSION['user_id'].';';
+		$newville = trim($_POST['ville']);
+		$sql = "update ville_utilisateur set intitule = '".$newville."' where id_user = ".$_SESSION['user_id'].";";
 		$resV=mysqli_query($conn,$sql);
 	}
 ?>
