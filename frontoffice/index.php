@@ -180,23 +180,22 @@
 
 									<div class="typo-line">
 										<h1>Bienvenue sur TimKY !</h1>
-										TimKY est un site qui prend à coeur les gestes écoresponsables dans les déplacements de chacun. Sur TimKY, ton souci de te déplacer de façons non polluantes est récompensé lors des challenges. 
+										TimKY est un site qui prend à coeur les gestes écoresponsables dans les déplacements de chacun. Sur TimKY, ton souci de te déplacer de façon non polluante est récompensé lors de challenges. 
 									</div>
 
 									<div class="typo-line">
 										<p class="category">RECHERCHE TRAJET</p>
 										<p>
 										Tu peux valoriser tes déplacements avec TimKY en postant ceux-ci. Pas de panique, on détaille ! 
-										Tu peux enregistrer ton déplacement dans notre base de données (lieu de départ, d'arrivée et moyen de transport sont demandé). 
-										Nous calculons ainsi tes points TimKY, les moyens de déplacement comme le vélo sont ainsi valorisés, à l'inverse les déplacements en voiture peuvent être pénalisé. 
+										Tu peux enregistrer ton déplacement dans notre base de données (lieu de départ, d'arrivée et moyen de transport sont demandés). 
+										Nous calculons ainsi tes points TimKY, les moyens de déplacement comme le vélo sont ainsi valorisés, à l'inverse les déplacements en voiture peuvent être pénalisés. 
 										</p>
 									</div>
 									<!--<center><img src="../assets/img/voiture_verte.jpg" width="25%" height="25%"></center>-->
 									<div class="typo-line">
 										<p class="category">SUCCES</p>
 										<p>
-										
-										Les Succès de petits défis à réaliser pour gagner d'avantages de points, et augmenter ton niveau.
+											Les Succès de petits défis à réaliser pour gagner davantage de points, et augmenter ton niveau.
 										</p>
 									</div>
 									<div class="typo-line">
@@ -210,16 +209,16 @@
 										<p>
 										Le cumul de tes points permet de te classer par rapport aux autres utilisateurs de TimKY dans ta ville. 
 										Tu trouveras donc dans cette rubrique le classement des villes et ton propre classement dans ta ville.
-										Le classement des villes, ce fait par cumul de tous les points des utilisateurs TimKI de celle-ci. 
-										Parviendras-tu à être suffisamment éco-responsable pour être en tête de classement ?
+										Le classement des villes se fait par cumul de tous les points des utilisateurs TimKI de celle-ci. 
+										Parviendras-tu à être suffisamment éco-responsable pour être en tête du classement ?
 										</p>
 									</div>
 									<div class="typo-line">
 										<p class="category">RECOMPENSES</p>
 										<p>
-										Un challenge, c'est sympa, un classement, c'est bien, une récompense ? On ne va pas se le cacher ça fait toujours plaisir ! 
+										Un challenge, c'est sympa, un classement, c'est bien, une récompense ? On ne va pas se le cacher, ça fait toujours plaisir ! 
 										Et TimKy prend à cœur de récompenser tes efforts en terme d'éco-responsabilitée. 
-										En effet, les premiers du classement TimKY se verront offrir des cadeaux qui, on l'espère vous feront plaisir. 
+										En effet, les premiers du classement TimKY se verront offrir des cadeaux qui, on l'espère, vous feront plaisir. 
 										Cette catégorie renseigne les différentes récompenses proposées dans ta ville (celles toujours disponibles et celles déjà acquises).
 										</p>
 									</div>
@@ -228,9 +227,9 @@
 									<h2>Un petit mot de l'équipe</h2>
 									
 									<p>
-									TimKY est un projet né de notre motivation à participer au Hackaton et a pour but de valoriser les déplacements non-poluants (tu t'en doute c'était notre sujet). 
-									L'idée est de t'aider à te motiver pour tes actions éco-responsables et de récompenser celle-ci (il faut bien se l'avouer on a rien sans rien). 	
-									TimKY, c'était l'occasion pour nous de nous dépasser et créer un site sympa pour toi en un Week-end (tout en passant un bon moment entre nous, on ne te le cache pas).
+									TimKY est un projet né de notre motivation à participer au Hackaton de l'ENSSAT 2017 et a pour but de valoriser les déplacements non-poluants (tu t'en doutes, c'était notre sujet). 
+									L'idée est de t'aider à te motiver pour tes actions éco-responsables et de récompenser celles-ci (il faut bien se l'avouer on a rien sans rien). 	
+									TimKY, c'était l'occasion pour nous de nous dépasser et créer un site sympa pour toi en un week-end (tout en passant un bon moment entre nous, on ne te le cache pas).
 									</p>
 									<br></br>
 									<center><img src="../assets/img/team.JPG" alt="..." width="40%" height="40%" ></center>
