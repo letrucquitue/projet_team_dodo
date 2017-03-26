@@ -1,7 +1,9 @@
 <?php
 session_start();
-if(!isset($_SESSION['user_id'])){
-  $_SESSION['user_id']=1;
+
+if(!isset($_SESSION['user_id']))
+{
+	header("location: connexion.php");
 }
 ?>
 
@@ -10,6 +12,22 @@ if(!isset($_SESSION['user_id'])){
 	include '../config/connectdb.php';
 	/*Récupération des infos utilisateur*/
 	if(isset($_SESSION['user_id'])){
+  	/*Traitement du formulaire*/
+  	if(!empty($_POST['prenom'])){
+  		$newprenom = trim($_POST['prenom']);
+  		$sql = "update utilisateur set prenom = '".$newprenom."' where id = ".$_SESSION['user_id'].";";
+  		$resP = mysqli_query($conn,$sql);
+  	}
+  	if(!empty($_POST['nom'])){
+  		$newnom = trim($_POST['nom']);
+  		$sql="update utilisateur set nom = '".$newnom."' where id = ".$_SESSION['user_id'].";";
+  		$resN=mysqli_query($conn,$sql);
+  	}
+  	if(!empty($_POST['ville'])){
+  		$newville = trim($_POST['ville']);
+  		$sql = "update ville_utilisateur set intitule = '".$newville."' where id_user = ".$_SESSION['user_id'].";";
+  		$resV=mysqli_query($conn,$sql);
+  	}
 		//Prénom
 		$resPrenom = mysqli_query($conn,'select prenom from utilisateur where id='.$_SESSION['user_id'].';');
 		while($donnees=mysqli_fetch_array($resPrenom)){
@@ -35,22 +53,6 @@ if(!isset($_SESSION['user_id'])){
 		}
 	}
 
-	/*Traitement du formulaire*/
-	if(!empty($_POST['prenom'])){
-		$newprenom = trim($_POST['prenom']);
-		$sql = "update utilisateur set prenom = '".$newprenom." where id_user = ".$_SESSION['user_id'].";";
-		$resP = mysqli_query($conn,$sql);
-	}
-	if(!empty($_POST['nom'])){
-		$newnom = trim($_POST['nom']);
-		$sql="update utilisateur set nom = '".$newnom."' where id_user = ".$_SESSION['user_id'].";";
-		$resN=mysqli_query($conn,$sql);
-	}
-	if(!empty($_POST['ville'])){
-		$newville = trim($_POST['ville']);
-		$sql = "update ville_utilisateur set intitule = '".$newville."' where id_user = ".$_SESSION['user_id'].";";
-		$resV=mysqli_query($conn,$sql);
-	}
 ?>
 
 <!doctype html>
