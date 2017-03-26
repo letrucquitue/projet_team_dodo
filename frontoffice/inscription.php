@@ -64,6 +64,14 @@ if(isset($_SESSION['user_id'])!="")
         <div class="form-group">
         <input type="text" class="form-control" placeholder="Email" name="user_email" id="user_email" />
         </div>
+
+        <div class="form-group">
+        <input type="text" class="form-control" placeholder="Ville" name="user_ville" id="user_ville" />
+        </div>
+
+        <div class="form-group">
+        <input type="text" class="form-control" placeholder="Code Postal" name="user_cp" id="user_cp" />
+        </div>
        
         <hr />
         
