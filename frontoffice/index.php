@@ -1,3 +1,11 @@
+<?php
+session_start();
+
+if(!isset($_SESSION['user_id']))
+{
+	header("location: connexion.php");
+}
+?>
 <!doctype html>
 <html lang="en">
 
@@ -65,7 +73,7 @@
 					<li>
 						<a href="succes.php">
 							<i class="pe-7s-cup"></i>
-							<p>Succés</p>
+							<p>Succès</p>
 						</a>
 					</li>
 					<li>
