@@ -71,7 +71,7 @@ if(!isset($_SESSION['user_id'])){
 					<li>
 						<a href="succes.php">
 							<i class="pe-7s-cup"></i>
-							<p>Succés</p>
+							<p>Succès</p>
 						</a>
 					</li>
 					<li>
