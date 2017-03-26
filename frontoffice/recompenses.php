@@ -130,9 +130,9 @@ if(!isset($_SESSION['user_id'])){
 
 								</a>
 								<ul class="dropdown-menu">
-									<li><a href="#"> <i class="pe-7s-user"></i> Editer Profil</a></li>
+									<li><a href="profil.php"> <i class="pe-7s-user"></i> Editer Profil</a></li>
 
-									<li><a href="#"> <i class="pe-7s-power"></i> Se déconnecter</a></li>
+									<li><a href="logout.php"> <i class="pe-7s-power"></i> Se déconnecter</a></li>
 								</ul>
 							</li>
 
