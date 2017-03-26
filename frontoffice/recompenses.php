@@ -1,3 +1,9 @@
+<?php
+session_start();
+if(!isset($_SESSION['user_id'])){
+  $_SESSION['user_id']=1;
+}
+?>
 <!doctype html>
 <html lang="en">
 
@@ -6,7 +12,7 @@
 	<link rel="icon" type="image/png" href="../assets/img/favicon.ico">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-	<title>TimKY</title>
+	<title>Récompenses</title>
 
 	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
 	<meta name="viewport" content="width=device-width" />
@@ -107,36 +113,6 @@
 					</div>
 					<div class="collapse navbar-collapse">
 						<ul class="nav navbar-nav navbar-left">
-							<!-- <li>
-								<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-									<i class="fa fa-dashboard"></i>
-									<p class="hidden-lg hidden-md">Dashboard</p>
-								</a>
-							</li> -->
-							<!-- <li class="dropdown">
-								<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-									<i class="fa fa-globe"></i>
-									<b class="caret hidden-sm hidden-xs"></b>
-									<span class="notification hidden-sm hidden-xs">5</span>
-									<p class="hidden-lg hidden-md">
-										5 Notifications
-										<b class="caret"></b>
-									</p>
-								</a>
-								<ul class="dropdown-menu">
-									<li><a href="#">Notification 1</a></li>
-									<li><a href="#">Notification 2</a></li>
-									<li><a href="#">Notification 3</a></li>
-									<li><a href="#">Notification 4</a></li>
-									<li><a href="#">Another notification</a></li>
-								</ul>
-							</li> -->
-							<!-- <li>
-								<a href="">
-									<i class="fa fa-search"></i>
-									<p class="hidden-lg hidden-md">Search</p>
-								</a>
-							</li> -->
 						</ul>
 						<ul class="nav navbar-nav navbar-right">
 							<!-- <li>
@@ -172,22 +148,49 @@
 					<div class="row">
 						<div class="col-md-12">
 							<div class="card">
-								<!--<div class="header">
-									<h4 class="title">Light Bootstrap Table Heading</h4>
-									<p class="category">Created using Roboto Font Family</p>
-								</div>-->
+
 								<div class="content">
 
 									<div class="typo-line">
 										<h1>Récompenses du challenge</h1>
 										<p>tableau ci-desous énumère les différentes récompenses offerte par ta ville.
 										</p>
+										<?php
+						                	include '../config/connecdb.php';
+                  							$sql_ville = 'select id_ville from ville_utilisateur where id_user = '.$_SESSION['user_id'];
+                  							$result_id_ville = mysqli_query($conn,$sql_ville);
+                  							$sql_id = 'select id_recompense from ville_recompense where id_ville_recomp = '.$result_id_ville;
+                  							$result_id = mysqli_query($conn,$sql_id);
+                  							$sql= 'select * from recompenses where attribue = 0 and id_recomp in '.$result_id;
+                  							$result= mysqli_query($conn,$sql_id);
+											  echo '<table class="table">';
+											  echo $sql;
+											  while($row = mysqli_fetch_array($result)) {
+												echo '<tr><td>'.$row['intitule'].'</td><td>'.$row['description'].'</td><td></tr>';
+											  }
+											  echo '</table>'
+									  ?>
 									</div>
 
 									<div class="typo-line">
 										<h2>Récompenses déjà attribuées</h2>
 										<p>En clicant ici tu peut afficher les récompenses qui ont déjà étées attribuées lors des précédents Challenges. 
 										</p>
+										<?php
+						                	include '../config/connecdb.php';
+                  							$sql_ville = 'select id_ville from ville_utilisateur where id_user = '.$_SESSION['user_id'];
+                  							$result_id_ville = mysqli_query($conn,$sql_ville);
+                  							$sql_id = 'select id_recompense from ville_recompense where id_ville_recomp = '.$result_id_ville;
+                  							$result_id = mysqli_query($conn,$sql_id);
+                  							$sql= 'select * from recompenses where attribue = 1 and id_recomp in '.$result_id;
+                  							$result= mysqli_query($conn,$sql_id);
+											  echo '<table class="table">';
+											  echo $sql;
+											  while($row = mysqli_fetch_array($result)) {
+												echo '<tr><td>'.$row['intitule'].'</td><td>'.$row['description'].'</td><td></tr>';
+											  }
+											  echo '</table>'
+									  ?>
 									</div>
 					
 
