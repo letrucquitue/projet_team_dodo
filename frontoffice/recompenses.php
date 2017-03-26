@@ -153,7 +153,7 @@ if(!isset($_SESSION['user_id'])){
 
 									<div class="typo-line">
 										<h1>Récompenses du challenge</h1>
-										<p>tableau ci-desous énumère les différentes récompenses offerte par ta ville.
+										<p>Le tableau ci-desous énumère les différentes récompenses offertes par ta ville.
 										</p>
 										<?php
 						                	include '../config/connectdb.php';
@@ -175,7 +175,7 @@ if(!isset($_SESSION['user_id'])){
 
 									<div class="typo-line">
 										<h2>Récompenses déjà attribuées</h2>
-										<p>En clicant ici tu peut afficher les récompenses qui ont déjà étées attribuées lors des précédents Challenges. 
+										<p>Liste des récompenses qui ont déjà été attribuées lors des précédents Challenges. 
 										</p>
 										<?php
 						                	include '../config/connectdb.php';
