@@ -29,17 +29,28 @@ if(!isset($_SESSION['user_id'])){
 		}
 
 		//Ville
+		$resville = mysqli_query($conn,'select intitule from ville_utilisateur where id_user = '.$_SESSION['user_id'].';');
+		while($donnees=mysqli_fetch_array($resville)){
+			$ville=$donnees['intitule'];
+		}
 	}
 
 	/*Traitement du formulaire*/
-	if(isset($POST['prenom'])){
-		$sql = 'update utilisateur set prenom = ? where id_user = '.$_SESSION['user_id'].';';
-
+	if(!empty($_POST['prenom'])){
+		$newprenom = $_POST['prenom'];
+		$sql = 'update utilisateur set prenom = '.$newprenom.' where id_user = '.$_SESSION['user_id'].';';
+		$resP = mysqli_query($conn,$sql);
 	}
-	if(isset($POST['nom'])){
-		$sql = 'update utilisateur set nom = '.$_POST['nom'].' where id_user = '.$_SESSION['user_id'].';';
+	if(!empty($_POST['nom'])){
+		$newnom = $_POST['nom'];
+		$sql='update utilisateur set nom = '.$newnom.' where id_user = '.$_SESSION['user_id'].';';
+		$resN=mysqli_query($conn,$sql);
 	}
-	//Traitement ville
+	if(!empty($_POST['ville'])){
+		$newville = $_POST['ville'];
+		$sql = 'update ville_utilisateur set intitule = '.$newville.' where id_user = '.$_SESSION['user_id'].';';
+		$resV=mysqli_query($conn,$sql);
+	}
 ?>
 
 <!doctype html>
@@ -94,7 +105,7 @@ if(!isset($_SESSION['user_id'])){
 				</div>
 
 				<ul class="nav">
-					<li class="active">
+					<li>
 						<a href="index.php">
 							<i class="pe-7s-home"></i>
 							<p>Accueil</p>
@@ -147,7 +158,7 @@ if(!isset($_SESSION['user_id'])){
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-						<a class="navbar-brand" href="#">Accueil</a>
+						<a class="navbar-brand" href="#">Profil</a>
 					</div>
 					<div class="collapse navbar-collapse">
 						<ul class="nav navbar-nav navbar-left">
@@ -244,7 +255,7 @@ if(!isset($_SESSION['user_id'])){
 										</h5>
 										<h6>
 											<!--Ville-->
-											Lannion
+											<?php echo $ville; ?>
 										</h6>
 										<p>
 											Vélo<br>
