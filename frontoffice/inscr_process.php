@@ -1,4 +1,5 @@
-<?php                              
+<?php
+
   session_start();
   if(!isset($_SESSION['user_id'])){
   	require_once '../config/connectdb.php';
@@ -17,7 +18,11 @@
       // $conn->exec($sql);
       $res_user = mysqli_query($conn,$sql);
 
-      $res_id = mysqli_query($conn,'select id from utilisateur where login='.$user_login.';');
+      //insertion ville
+
+      $sql = "select id from utilisateur where login='".$user_login."';";
+
+      $res_id = mysqli_query($conn,$sql);
       while($donnees=mysqli_fetch_array($res_id)){
         $user_id=$donnees['id'];
       }
