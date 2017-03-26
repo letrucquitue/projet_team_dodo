@@ -156,7 +156,7 @@ if(!isset($_SESSION['user_id'])){
 										<p>tableau ci-desous énumère les différentes récompenses offerte par ta ville.
 										</p>
 										<?php
-						                	include '../config/connecdb.php';
+						                	include '../config/connectdb.php';
                   							$sql_ville = 'select * from ville_utilisateur where id_user = '.$_SESSION['user_id'];
                   							$result_ville = mysqli_query($conn,$sql_ville);
 									$row_res = mysqli_fetch_array($result_ville);
@@ -178,12 +178,12 @@ if(!isset($_SESSION['user_id'])){
 										<p>En clicant ici tu peut afficher les récompenses qui ont déjà étées attribuées lors des précédents Challenges. 
 										</p>
 										<?php
-						                	include '../config/connecdb.php';
+						                	include '../config/connectdb.php';
                   							$sql_ville = 'select id_ville from ville_utilisateur where id_user = '.$_SESSION['user_id'];
                   							$result_id_ville = mysqli_query($conn,$sql_ville);
                   							$sql_id = 'select id_recomp from ville_recompenses where intitule = "'.$row_res['intitule'].'" and code_post='.$row_res['code_post'];
 
-                  							$sql= 'select * from recompenses where attribue = 0 and id_recomp in ('.$sql_id.')';
+                  							$sql= 'select * from recompenses where attribue = 1 and id_recomp in ('.$sql_id.')';
                   							$result= mysqli_query($conn,$sql);
 											echo '<table class="table">';
 											echo '<tr><th>Nom</th><th>Description</th></tr>';
