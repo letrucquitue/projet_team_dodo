@@ -27,7 +27,7 @@ if(isset($_SESSION['user_id'])!="")
 
 </head>
 
-<body>
+<body style="background-position:center center; background-image:url(../assets/img/fond_connexion.jpg);">
     
 <div class="signin-form">
 
@@ -57,7 +57,9 @@ if(isset($_SESSION['user_id'])!="")
             <button type="submit" class="btn btn-default" name="btn-login" id="btn-login">
     		<span class="glyphicon glyphicon-log-in"></span> &nbsp; Se connecter
 			</button> 
-        </div>  
+        </div>
+
+        <a href="inscription.php">S'inscrire</a>
       
       </form>
 

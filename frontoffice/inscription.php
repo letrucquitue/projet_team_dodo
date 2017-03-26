@@ -27,7 +27,7 @@ if(isset($_SESSION['user_id'])!="")
 
 </head>
 
-<body>
+<body style="background-position:center center; background-image:url(../assets/img/fond_connexion.jpg);">
     
 <div class="signin-form">
 
